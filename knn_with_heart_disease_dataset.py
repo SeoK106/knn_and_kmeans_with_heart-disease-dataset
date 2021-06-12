@@ -122,7 +122,7 @@ if __name__=="__main__":
         
         acc = accuracy_score(y_test,y_pred) 
         acc_list.append(acc)
-        print(f"{seq}: 학습 데이터 개수: {x_train.shape[0]}, 평가 데이터 개수: {x_test.shape[0]}, 정확도: {acc:.2f}")   
+        print(f"{seq}: # of Train set: {x_train.shape[0]}, # of validation set: {x_test.shape[0]}, Accuracy: {acc:.2f}")   
         seq += 1
     
     print(f"\n  * Average accuracy: {np.mean(acc_list):.2f}")    
@@ -156,7 +156,7 @@ if __name__=="__main__":
         
         acc = accuracy_score(y_test,y_pred) 
         acc_list.append(acc)
-        print(f"{seq}: 학습 데이터 개수: {x_train.shape[0]}, 평가 데이터 개수: {x_test.shape[0]}, 정확도: {acc:.2f}")   
+        print(f"{seq}: # of Train set: {x_train.shape[0]}, # of validation set: {x_test.shape[0]}, Accuracy: {acc:.2f}")    
         seq += 1
     
     print(f"\n  * Average accuracy: {np.mean(acc_list):.2f}")
