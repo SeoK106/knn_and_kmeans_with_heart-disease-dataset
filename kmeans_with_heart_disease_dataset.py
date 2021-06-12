@@ -13,7 +13,7 @@ from sklearn.cluster import KMeans
 # call and process data
 def get_data():
     '''
-    import and prodess dataset
+    import and refine dataset
 
     - Inputs: raw data
             ['age','sex','cp','trestbps','chol','fbs','restecg','thalach','exang','oldpeak','slope','ca','thal','num(target)'] 
@@ -22,6 +22,9 @@ def get_data():
 
         cf. target data(num) info: diagnosis of heart disease (angiographic disease status)
                                    It is integer valued from 0 (no presence) to 4. 
+                                    -> Value 0: < 50% diameter narrowing
+                                       Value 1: > 50% diameter narrowing
+                                                    (in any major vessel)
 
     for more infromation -> visit this web page : https://archive.ics.uci.edu/ml/datasets/Heart+Disease
     '''
