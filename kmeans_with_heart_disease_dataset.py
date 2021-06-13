@@ -8,7 +8,7 @@ plt.style.use('ggplot')
 from sklearn.preprocessing import scale
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
-%matplotlib inline
+
 
 # call and process data
 def get_data():
@@ -57,6 +57,8 @@ def draw_clusters(table):
     # drawing
     sns.scatterplot(x="principal component1", y="principal component2", hue=table['cluster'], data=pca_df)
     plt.title('K-means Clustering in 2D')
+    # Edit 'path_to_save' as your directory to save the result diagram 
+    plt.savefig(path_to_save+'kmeans_result.png')
     plt.show()
 
 
