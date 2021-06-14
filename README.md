@@ -31,3 +31,4 @@ That is why the x and y axes are the principal component.
 Environment
 ----
 - python 3.7
+- Used Modules - **numpy, pandas, seaborn, scikit-learn**
