@@ -2,7 +2,7 @@
 
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split, KFold, StratifiedKFold
+from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay, precision_score, recall_score, f1_score
 from sklearn.preprocessing import scale
@@ -64,8 +64,7 @@ def calc_performance(y_true,y_pred):
    
     # Plotting confision matrix
     disp = ConfusionMatrixDisplay(confusion_matrix=cm)
-    disp.plot() 
-    
+    disp.plot()    
 
     # precision = tp/(tp+fp): High precision means performance is good -> best is 1, worst is 0.
     pre = precision_score(y_true,y_pred)
@@ -84,9 +83,6 @@ def calc_performance(y_true,y_pred):
     fs = f1_score(y_true,y_pred)
     print(f"  * f1-score: {fs:.2f}")
     
-    # This function will show you {precision,recall,f1-score}
-    #from sklearn.metrics import classification_report
-    #tmp = classification_report(y_true,y_pred)
 
 
 if __name__=="__main__":
@@ -100,80 +96,15 @@ if __name__=="__main__":
 
     # KNN
 
-    # ~ 1. Applying K-Fold
-    print("\n>> knn with k-fold \n")
-    
-    kf = KFold(n_splits = 3, shuffle = True, random_state = 106)
-    knnc= KNeighborsClassifier(n_neighbors = 5)
-
-    seq = 1
-    acc_list = []
-    for train_idx, test_idx in kf.split(x):
-        x_train = x.iloc[train_idx]
-        y_train = y[train_idx]
-        x_test = x.iloc[test_idx]
-        y_test = y[test_idx]
-
-        # fitting model with folded train data
-        model = knnc.fit(x_train,y_train)
-
-        # predict with folded testset
-        y_pred = model.predict(x_test)
-        
-        acc = accuracy_score(y_test,y_pred) 
-        acc_list.append(acc)
-        print(f"{seq}: # of Train set: {x_train.shape[0]}, # of validation set: {x_test.shape[0]}, Accuracy: {acc:.2f}")   
-        seq += 1
-    
-    print(f"\n  * Average accuracy: {np.mean(acc_list):.2f}")    
-    
-    '''
-    from sklearn.model_selection import cross_val_score
-    scores = cross_val_score(model, x_train, y_train, cv=3)
-    print(scores)
-    print(f"Average accuracy: {scores.mean()}")
-    '''
-          
-    # ~1.1 Advanced K-Fold with StratifiedKFold
-    print("\n>> knn with Stratified k-fold \n")
-    
-    skf = StratifiedKFold(n_splits=3, shuffle = True, random_state = 106)
-    knnc= KNeighborsClassifier(n_neighbors = 5)
-
-    seq = 1
-    acc_list = []
-    for train_idx, test_idx in skf.split(x,y):
-        x_train = x.iloc[train_idx]
-        y_train = y[train_idx]
-        x_test = x.iloc[test_idx]
-        y_test = y[test_idx]
-
-        # fitting model with folded train data
-        model = knnc.fit(x_train,y_train)
-
-        # predict with folded testset
-        y_pred = model.predict(x_test)
-        
-        acc = accuracy_score(y_test,y_pred) 
-        acc_list.append(acc)
-        print(f"{seq}: # of Train set: {x_train.shape[0]}, # of validation set: {x_test.shape[0]}, Accuracy: {acc:.2f}")    
-        seq += 1
-    
-    print(f"\n  * Average accuracy: {np.mean(acc_list):.2f}")
-    
-
-    # ~ 2. without k-fold
-
     # split data into train and test data
-    x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.3,random_state=106)
+    x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.3)
 
     # fitting model with train data
-    knnc = KNeighborsClassifier(n_neighbors=5,metric='minkowski',p=2)
+    knnc = KNeighborsClassifier(n_neighbors=5)
     model = knnc.fit(x_train,y_train)
 
     # predict with test data
     y_pred = model.predict(x_test)
 
-    print("-"*100)
-    print("\n>> knn without k-fold \n")
+    print("\n>> knn\n")
     calc_performance(y_test,y_pred)
