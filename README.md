@@ -17,10 +17,12 @@ About Result
 -----
 
 ### 1. knn 
-![knn_result](https://user-images.githubusercontent.com/66738234/121795556-e9fa2e00-cc4c-11eb-8818-5211cfb18049.png)
+![knn_result_without_k-fold](https://user-images.githubusercontent.com/66738234/122314636-84ab8300-cf53-11eb-9482-246324aa7999.png)
 
-You can practice the usage and compare [K-fold](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html), [stratified k-fold](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html), and normal knn method.<br>
-The result is evaluating the preformance of the models. 
+The result is **evaluating the preformance** of the models.
+
+<!--You can practice the usage and compare [K-fold](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html), [stratified k-fold](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedKFold.html), and normal knn method.<br>
+The result is evaluating the preformance of the models. -->
 
 ### 2. kmeans
 ![kmeans_result](https://user-images.githubusercontent.com/66738234/121795377-0d23de00-cc4b-11eb-8284-f33c7f0c5088.png)
