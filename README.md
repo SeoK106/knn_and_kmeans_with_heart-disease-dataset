@@ -34,5 +34,5 @@ Environment
 ----
 - python 3.7
 - Used Modules - **numpy, pandas, matplotlib, seaborn, scikit-learn**
-
-더 자세한 내용은 [여기](https://velog.io/@seo106/knn-and-k-means-with-heart-disease-data)를 방문해보면 된다. 
+<br><br>
+> ### Detailed algorithm and experimental setup are explained in [here](https://velog.io/@seo106/knn-and-k-means-with-heart-disease-data).
